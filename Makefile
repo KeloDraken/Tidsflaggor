@@ -11,8 +11,12 @@ project_setup:
 
 .PHONY: startapp
 startapp:
+	@echo "Creating app..."
 	@cd $(CORE_DIR) && python ../manage.py startapp $(ARGS)
+	@echo "App created."
 
 .PHONY: migrate
 migrate:
+	@echo "Migrating database..."
 	@cd $(SOURCE_DIR) && python manage.py migrate $(ARGS)
+	@echo "Database migrated."
