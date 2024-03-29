@@ -12,34 +12,22 @@ services:
     networks:
       - default
       - flaggor_network
+    restart: unless-stopped
 
   flaggor_db:
     container_name: flaggor_db
     image: postgres
     environment:
-      POSTGRES_DB: db_name
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: db_password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+      POSTGRES_DB: flaggor_db
+      POSTGRES_USER: flaggor_user
+      POSTGRES_PASSWORD: flaggor_password
+      POSTGRES_HOST: localhost
     networks:
       - default
       - flaggor_network
     ports:
       - target: 5432
         published: 5432
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "pg_isready",
-          "-q",
-          "-U",
-          "postgres_admin"
-        ]
-      interval: 5s
-      timeout: 1s
-      retries: 2
     restart: unless-stopped
 
 networks:
