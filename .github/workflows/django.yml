@@ -22,9 +22,7 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Change into src dir
-      run: |
-        cd src
     - name: Run Tests
       run: |
+        cd src
         python3 manage.py test
