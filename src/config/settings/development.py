@@ -16,7 +16,7 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB", "flaggor_db"),
         "USER": os.getenv("POSTGRES_USER", "flaggor_user"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "flaggor_password"),
-        "HOST": os.getenv("POSTGRES_HOST", "flaggor_db"),
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
         "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
@@ -37,4 +37,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "static-local"
+STATIC_ROOT = BASE_DIR.parent / "static-local"
+STATICFILES_DIRS = [BASE_DIR.parent / "static"]
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR.parent / "media"
