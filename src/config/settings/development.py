@@ -38,3 +38,5 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "static-local"
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
